@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
+    <style type="text/tailwindcss">
+        @theme {
+            /* ========== FONTS ========== */
+            --font-rubik: "Rubik", sans-serif;
+
+            /* ========== TEXT SIZES ========== */
+            --text-xxs: 10px;
+            --text-xxs-line-height: 12px;
+            --text-xs: 12px;
+            --text-xs-line-height: 24px;
+            --text-sm: 14px;
+            --text-sm-line-height: 150%;
+            --text-base: 16px;
+            --text-base-line-height: 22px;
+            --text-xl: 18px;
+            --text-xl-line-height: 100%;
+            --text-2xl: 20px;
+            --text-2xl-line-height: 150%;
+            --text-3xl: 32px;
+            --text-3xl-line-height: 40px;
+            --text-4xl: 40px;
+            --text-4xl-line-height: 100%;
+            --text-6xl: 64px;
+            --text-6xl-line-height: 100%;
+        }
+        .img-tablet {
+            @apply md:w-[24px] md:h-[24px];
+        }
+        .toggle-tablet {
+            @apply md:w-[48px] md:h-[28px];
+        }
+        .head-tablet {
+            @apply md:py-[40px] md:px-[64px];
+        }
+        .section-tablet {
+            @apply md:space-y-[64px] md:pt-[9px] md:px-[64px] md:h-[758px];
+        }
+        .head-desk {
+            @apply lg:py-[83px] lg:pl-[140px] lg:px-[140px];
+        }
+        .section-desk {
+            @apply lg:flex lg:flex-row lg:gap-[128px] lg:px-[140px];
+        }
+        .select-desk {
+            @apply lg:p-[24px] lg:gap-[24px] lg:w-[564px] lg:rounded-3xl;
+        }
+    </style>
+</head>
+
+<body class="font-rubik bg-[#313E51]">
+    <header class="flex flex-row items-center justify-between py-[16px] px-[24px] head-tablet head-desk">
+        <div class="w-[167px] h-[40px] flex flex-row items-center gap-[16px] md:w-[253px] md:h-[56px] invisible">
+            <img src="./images/Subject Icon.svg" alt="">
+            <h2 class="text-xl leading-[100%] font-medium text-white">Accessibility</h2>
+        </div>
+        <div class="flex flex-row items-center gap-[8px] md:gap-[16px]">
+            <img src="./images/fluent_weather-sunny-16-regular.svg" alt="" class="w-[16px] h-[16px] img-tablet">
+            <img src="./images/Theme Toggle Icons.svg" alt="" class="w-[32px] h-[20px] toggle-tablet">
+            <img src="./images/fluent_weather-moon-16-regular.svg" alt="" class="w-[16px] h-[16px] img-tablet">
+        </div>
+    </header>
+
+    <section class="px-[24px] pt-[32px] h-[740px] space-y-[40px] section-tablet section-desk">
+        <div class="space-y-[16px] lg:space-y-[48px]">
+            <div class="space-y-[8px]">
+                <span class="text-4xl md:text-6xl leading-[100%] font-light text-white">Welcome to the</span>
+                <h1 class="text-4xl md:text-6xl leading-[100%] font-medium text-white">Frontend Quiz!</h1>
+            </div>
+            <p class="text-sm md:text-2xl leading-[150%] italic text-[#ABC1E1]">Pick a subject to get started.</p>
+        </div>
+        <div class="space-y-[16px] md:space-y-[24px]">
+            <button class="text-xl leading-[100%] font-medium text-white p-[16px] flex flex-row items-center gap-[16px] bg-[#3B4D66] w-full rounded-xl select-desk hover:bg-[#4B5D77]"
+            data-subject="html">
+                <img src="./images/Subject Icon Container.svg" alt="">
+                <h2>HTML</h2>
+            </button>
+            <button class="text-xl leading-[100%] font-medium text-white p-[16px] flex flex-row items-center gap-[16px] bg-[#3B4D66] w-full rounded-xl select-desk hover:bg-[#4B5D77]"
+            data-subject="css">
+                <img src="./images/Subject Icon Container (1).svg" alt="">
+                <h2>CSS</h2>
+            </button>
+            <button class="text-xl leading-[100%] font-medium text-white p-[16px] flex flex-row items-center gap-[16px] bg-[#3B4D66] w-full rounded-xl select-desk hover:bg-[#4B5D77]"
+            data-subject="js">
+                <img src="./images/Subject Icon Container (2).svg" alt="">
+                <h2>Javascript</h2>
+            </button>
+            <button class="text-xl leading-[100%] font-medium text-white p-[16px] flex flex-row items-center gap-[16px] bg-[#3B4D66] w-full rounded-xl select-desk hover:bg-[#4B5D77]"
+            data-subject="accessibility">
+                <img src="./images/Subject Icon Container (3).svg" alt="">
+                <h2>Accessibility</h2>
+            </button>
+            <button class="text-xl leading-[100%] font-medium text-white p-[16px] flex flex-row items-center bg-[#A729F5] w-full rounded-xl lg:p-[32px] lg:rounded-3xl invisible">
+                <h2 class="mx-auto">Submit Answer</h2>
+            </button>
+        </div>
+    </section>
+    <script src="./script.js"></script>
+</body>
+
+</html>
