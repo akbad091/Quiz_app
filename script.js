@@ -332,8 +332,8 @@ function renderQuestion() {
           Submit Answer
         </button>
 
-        <p id="error" class=" text-center text-white space-x-2 hidden ">
-          <span class="border text-red-500 border-red-500 px-[5px] max-w-[30px] rounded-full text-center ">x</span>
+        <p id="error" class=" flex items-center justify-center gap-2 text-center text-white text-[24px] space-x-2 hidden mt-4 md:mt-[32px]">
+          <span class="flex items-center justify-center w-[30px] h-[30px] border-3 text-red-500 border-red-500 rounded-full text-2xl font-bold">X</span>
           Please select an answer
         </p>
       </div>
