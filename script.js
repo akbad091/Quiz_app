@@ -421,39 +421,34 @@ function submitAnswer() {
    SCORE SCREEN
 ========================= */
 function renderScore() {
+  section.className = "container mx-auto px-[24px] pt-[32px] space-y-[40px] section-tablet section-desk flex flex-col lg:flex-row justify-between items-start";
+
   section.innerHTML = `
-    <div
-      class="container mx-auto px-[24px] pt-[32px] space-y-[40px] flex flex-col lg:flex-row justify-between section-tablet section-desk"
-    >
+    <div class="space-y-[16px] lg:space-y-[48px]">
       <div class="space-y-[8px] pr-[44px]">
-        <span class="text-4xl md:text-6xl font-light text-white"
-          >Quiz completed</span
-        >
-        <h1 class="text-4xl md:text-6xl font-medium text-white">
-          You scored...
-        </h1>
+        <span class="text-4xl md:text-6xl font-light text-white leading-none">Quiz completed</span>
+        <h1 class="text-4xl md:text-6xl font-medium text-white leading-none">You scored...</h1>
       </div>
-      <div class="space-y-[32px] flex flex-col items-center lg:w-[564px]">
-        <div
-          class=" bg-[#3B4D66] space-y-[16px] md:space-y-[40px] rounded-xl flex flex-col items-center p-[32px] md:p-[48px] w-full"
-        >
-          <button
-            class="text-xl font-medium text-white flex items-center gap-[24px]"
-          >
-           ${currentSubjectIcon}
-            <h2>${currentSubjectName}</h2>
-          </button>
-          <p class="font-medium text-[88px] md:text-[144px] text-white mb-[16px]">${score}</p>
-          <span class="text-[#ABC1E1] text-xl md:text-[24px]"> out of ${currentQuiz.length} </span>
+    </div>
+
+    <div class="space-y-[12px] md:space-y-[24px] lg:w-[564px] w-full">
+      <div class="bg-[#3B4D66] rounded-xl lg:rounded-3xl flex flex-col items-center p-[32px] md:p-[48px] w-full shadow-lg">
+        
+        <div class="text-xl font-medium text-white flex items-center gap-[16px] mb-[16px] md:mb-[40px]">
+          ${currentSubjectIcon}
+          <h2 class="text-2xl md:text-3xl">${currentSubjectName}</h2>
         </div>
 
-        <button
-          id="restart"
-          class="bg-[#A729F5] text-white font-medium text-xl px-8 py-4 rounded-xl text-xl w-full"
-        >
-          Play Again
-        </button>
+        <p class="font-medium text-[88px] md:text-[144px] text-white leading-none">${score}</p>
+        <span class="text-[#ABC1E1] text-xl md:text-[24px] mt-[16px]">out of ${currentQuiz.length}</span>
       </div>
+
+      <button
+        id="restart"
+        class="bg-[#A729F5] hover:bg-[#A729F5]/80 transition-colors text-white font-medium text-xl p-[16px] md:p-[24px] rounded-xl lg:rounded-3xl w-full"
+      >
+        Play Again
+      </button>
     </div>
   `;
 
