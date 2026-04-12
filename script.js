@@ -264,12 +264,16 @@ document.querySelectorAll("[data-subject]").forEach((btn) => {
   btn.addEventListener("click", () => {
     const subject = btn.dataset.subject;
 
+    currentSubjectName = btn.querySelector("h2").textContent.trim();
+    let subjectIcon = btn.querySelector("img")
+    currentSubjectIcon = subjectIcon ? subjectIcon.outerHTML : ""
+
     currentQuiz = quizzes[subject];
     currentIndex = 0;
     score = 0;
 
     headerContainer.classList.remove("invisible");
-    headerTitle.textContent = btn.innerText;
+    headerTitle.textContent = currentSubjectName;
 
     renderQuestion();
   });
@@ -325,7 +329,8 @@ function renderQuestion() {
           Submit Answer
         </button>
 
-        <p id="error" class="text-red-400 hidden">
+        <p id="error" class=" text-center text-white space-x-2 hidden ">
+          <span class="border text-red-500 border-red-500 px-[5px] max-w-[30px] rounded-full text-center ">x</span>
           Please select an answer
         </p>
       </div>
@@ -411,18 +416,38 @@ function submitAnswer() {
 ========================= */
 function renderScore() {
   section.innerHTML = `
-    <div class="text-center space-y-8">
-      <h2 class="text-white text-3xl">Quiz completed</h2>
-
-      <div class="bg-[#3B4D66] p-8 rounded-xl">
-        <p class="text-[#ABC1E1]">Your score</p>
-        <p class="text-white text-6xl font-bold">${score}</p>
+    <div
+      class="container mx-auto px-[24px] pt-[32px] space-y-[40px] flex flex-col lg:flex-row justify-between section-tablet section-desk"
+    >
+      <div class="space-y-[8px] pr-[44px]">
+        <span class="text-4xl md:text-6xl font-light text-white"
+          >Quiz completed</span
+        >
+        <h1 class="text-4xl md:text-6xl font-medium text-white">
+          You scored...
+        </h1>
       </div>
+      <div class="space-y-[32px] flex flex-col items-center lg:w-[564px]">
+        <div
+          class=" bg-[#3B4D66] space-y-[16px] md:space-y-[40px] rounded-xl flex flex-col items-center p-[32px] md:p-[48px] w-full"
+        >
+          <button
+            class="text-xl font-medium text-white flex items-center gap-[24px]"
+          >
+           ${currentSubjectIcon}
+            <h2>${currentSubjectName}</h2>
+          </button>
+          <p class="font-medium text-[88px] md:text-[144px] text-white mb-[16px]">${score}</p>
+          <span class="text-[#ABC1E1] text-xl md:text-[24px]"> out of ${currentQuiz.length} </span>
+        </div>
 
-      <button id="restart"
-        class="bg-[#A729F5] text-white px-8 py-4 rounded-xl text-xl">
-        Play Again
-      </button>
+        <button
+          id="restart"
+          class="bg-[#A729F5] text-white font-medium text-xl px-8 py-4 rounded-xl text-xl w-full"
+        >
+          Play Again
+        </button>
+      </div>
     </div>
   `;
 
