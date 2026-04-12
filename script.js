@@ -260,6 +260,9 @@ const quizzes = {
 /* =========================
    START QUIZ
 ========================= */
+let currentSubjectName = "";
+let currentSubjectIcon = "";
+
 document.querySelectorAll("[data-subject]").forEach((btn) => {
   btn.addEventListener("click", () => {
     const subject = btn.dataset.subject;
@@ -369,46 +372,49 @@ function submitAnswer() {
 
   const correct = currentQuiz[currentIndex].answer;
   const options = document.querySelectorAll(".option");
+  const isCorrect = selected === correct;
 
   options.forEach((btn, i) => {
     btn.disabled = true;
-
     const letterBox = btn.querySelector("div");
 
     // CORRECT
     if (i === correct) {
       btn.classList.add("border-2", "border-green-400");
       letterBox.classList.replace("bg-[#626C7F]", "bg-green-400");
-
       btn.insertAdjacentHTML(
         "beforeend",
         `<span class="ml-auto w-6 h-6 flex items-center justify-center border-2 border-green-400 rounded-full text-green-400 text-sm">✓</span>`,
       );
     }
 
-    // WRONG
-    if (i === selected && selected !== correct) {
+    if (i === selected && !isCorrect) {
       btn.classList.add("border-2", "border-red-400");
       letterBox.classList.replace("bg-[#626C7F]", "bg-red-400");
-
       btn.insertAdjacentHTML(
         "beforeend",
         `<span class="ml-auto w-6 h-6 flex items-center justify-center border-2 border-red-400 rounded-full text-red-400 text-sm">✕</span>`,
       );
     }
+
   });
 
-  if (selected === correct) score++;
+  if (isCorrect){
+    score++;
+    setTimeout(() => {
+      currentIndex++;
 
-  setTimeout(() => {
-    currentIndex++;
-
-    if (currentIndex < currentQuiz.length) {
-      renderQuestion();
+      if (currentIndex < currentQuiz.length) {
+        renderQuestion();
+      } else {
+        renderScore();
+      }
+      }, 1200);
     } else {
+      setTimeout(() => {
       renderScore();
-    }
-  }, 1200);
+    }, 1200);
+  }
 }
 
 /* =========================
