@@ -318,7 +318,7 @@ function renderQuestion() {
             data-index="${i}">
             
             <div class="w-[40px] h-[40px] flex items-center justify-center bg-[#626C7F] text-white rounded-lg">
-              ${String.fromCharCode(65 + i)}
+              ${["A", "B", "C", "D"][i]}
             </div>
 
             <span class="text-white">${escapeHTML(opt)}</span>
